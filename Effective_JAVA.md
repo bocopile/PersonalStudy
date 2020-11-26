@@ -95,7 +95,20 @@
 
 ### 아이템 8. finalizer와 cleaner사용을 피해라
 
+- 자바에서는 2가지 객체 소멸자를 제공한다. 첫번째 finalizer는 예측할수 없고 상황에 따라서 위험할수 있다.
+  두번째 cleaner -> Deprecated된 finalizer의 대안으로 등장하여 덜 위험하지만 여전히 예측할 수 없다.
+
+- 사용할때
+
+  - clone 메소드를 호출하지 않는거에 대한 안정망 역할을 한다 (FileOutputStream, ThreadPollExecutor)
+
+  - 네이티브 자바는 가비지 컬랙터가 회수하지 못한다. 그 대안으로 사용된다. (물론 성능 저하)
+
+- 그냥 사용하지 말자
+
 ### 아이템 9. try-finally 보다는 try-with-resource를 사용해라
+
+- 자바 라이브러리에는 close()라는 메서드를 통해 닫아야 하는 자원들이 있다. java7 이전에는 try-finally를 이용했다.
 
 ## 3장 모든 객체의 공통 메소드
 
